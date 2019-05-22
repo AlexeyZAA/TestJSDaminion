@@ -21,32 +21,32 @@
                                     <tr>
                                         <td>
                                             <label class="rad">
-                                                    <input type="radio" name="radiogroup" class="inputrad" >
+                                                    <input type="radio" id="r1" name="radiogroup" class="inputrad" value=0 checked="true">
                                                     <span class="mark"></span>
-                                                    <span class="radiolbl">LICENSE PLAN #1</span>
+                                                    <span class="radiolbl fontbabesB">LICENSE PLAN #1</span>
                                             </label>
                                         </td>
-                                        <td class="pricelic">$13 licenses</td>
+                                        <td class="pricelic">$<span id="licplan1"></span>&nbsp;per licenses</td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <label class="rad">
-                                                    <input type="radio" name="radiogroup" class="inputrad" >
+                                                    <input type="radio" id="r2" name="radiogroup" class="inputrad" value=1>
                                                     <span class="mark"></span>
-                                                    <span class="radiolbl">LICENSE PLAN #2 </span>
+                                                    <span class="radiolbl fontbabesB">LICENSE PLAN #2 </span>
                                             </label>
                                         </td>
-                                        <td class="pricelic">20 licenses</td>
+                                        <td class="pricelic">$<span id="licplan2"></span>&nbsp;per licenses</td>
                                     </tr>
                                     <tr>
                                         <td>                                    
                                             <label class="rad">
-                                                    <input type="radio" name="radiogroup" class="inputrad">
+                                                    <input type="radio" id="r3" name="radiogroup" class="inputrad" value=2>
                                                     <span class="mark"></span>
-                                                    <span class="radiolbl">LICENSE PLAN #3</span>
+                                                    <span class="radiolbl fontbabesB">LICENSE PLAN #3</span>
                                             </label>
                                             </td>
-                                        <td class="pricelic">30 licenses</td>
+                                        <td class="pricelic">$<span id="licplan3"></span>&nbsp;per licenses</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -54,21 +54,17 @@
                         <div id="selectlicenses" class="boxselectlic">
                             <label for="numlic"><span class="numlic">Numder of licenses:<span></label>
                             <select id="numlic" name="numlic">
-                                <option value="11">1</option>
-                                <option value="22">2</option>
-                                <option value="33">3</option>
-                                <option value="44">4</option>
                             </select>
                         </div>
                         <div class="boxfoot">
                             <div class="total">
-                                <span class="tot">total:</span>&nbsp;<span class="totres">$340</span><sup class="val">us</sup>
+                                <span class="tot">total:</span>&nbsp;<span id="total" class="totres"></span><sup class="val">us</sup>
                             </div>
                             <div class="buy">
                                  <button type="button" class="btn btn-success btnbuy">BUY NOW</button>
                             </div>
                             <div class="selectplan">
-                                <p><span class="BebasBook">Selected plan:</span>&nbsp;<span>#3</span></p>
+                                <p><span>Selected plan:</span>&nbsp;<span id="licplan">#3</span></p>
                             </div>
                         </div>
                     </div>
@@ -76,8 +72,7 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src="js/script.js"></script>
 </body>
 
