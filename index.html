@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Верстка</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/css.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row align-items-center">
+            <div col-md-4 col-lg-4>
+                <div class="divcontaner">
+                    <div class="divchild">
+                        <div class="radiolicbox">
+                            <table class="radiotable">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <label class="rad">
+                                                    <input type="radio" name="radiogroup" class="inputrad" >
+                                                    <span class="mark"></span>
+                                                    <span class="radiolbl">LICENSE PLAN #1</span>
+                                            </label>
+                                        </td>
+                                        <td class="pricelic">$13 licenses</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="rad">
+                                                    <input type="radio" name="radiogroup" class="inputrad" >
+                                                    <span class="mark"></span>
+                                                    <span class="radiolbl">LICENSE PLAN #2 </span>
+                                            </label>
+                                        </td>
+                                        <td class="pricelic">20 licenses</td>
+                                    </tr>
+                                    <tr>
+                                        <td>                                    
+                                            <label class="rad">
+                                                    <input type="radio" name="radiogroup" class="inputrad">
+                                                    <span class="mark"></span>
+                                                    <span class="radiolbl">LICENSE PLAN #3</span>
+                                            </label>
+                                            </td>
+                                        <td class="pricelic">30 licenses</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="selectlicenses" class="boxselectlic">
+                            <label for="numlic"><span class="numlic">Numder of licenses:<span></label>
+                            <select id="numlic" name="numlic">
+                                <option value="11">1</option>
+                                <option value="22">2</option>
+                                <option value="33">3</option>
+                                <option value="44">4</option>
+                            </select>
+                        </div>
+                        <div class="boxfoot">
+                            <div class="total">
+                                <span class="tot">total:</span>&nbsp;<span class="totres">$340</span><sup class="val">us</sup>
+                            </div>
+                            <div class="buy">
+                                 <button type="button" class="btn btn-success btnbuy">BUY NOW</button>
+                            </div>
+                            <div class="selectplan">
+                                <p><span class="BebasBook">Selected plan:</span>&nbsp;<span>#3</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
