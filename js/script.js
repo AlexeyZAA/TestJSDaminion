@@ -1,5 +1,8 @@
 var licenses;
 $(document).ready(function () {
+    /*
+    *   Для первого задания 
+    * */
     $.ajax({
         url: "lic.json",
         type: "POST",
@@ -34,11 +37,65 @@ $(document).ready(function () {
         selAdd(countlic);
         let total = sumLic(1, parseInt(licenses[$(this).val()].licsum));
         $('#total').html('$' + total);
-        $('#licplan').html('#' + (parseInt($(this).val())+1));
+        $('#licplan').html('#' + (parseInt($(this).val()) + 1));
     });
 
+    //для второго задания
+
+    let outWH = parseInt($('#circleout').height()); //ширина, ни у она же высота внешнего круга
+    let radius = outWH / 2; //радиус внешнего
+    outCoordTop = $('#circleout').offset().top; //верхняя координата внешнего блока
+    outCoordLeft = $('#circleout').offset().left; //левая коорд внешнего
+    //постоянная точка центра внешней окружности
+    var center = {
+        x: parseInt(radius),
+        y: parseInt(radius)
+    }
+    function moveIn(p1, p2) {
+        let x = p1.x - p2.x;
+        let y = p1.y - p2.y;
+        return Math.sqrt(x * x + y * y);
+    }
+    //постоянная ширина и высота внутреннего
+    var inWidth = parseInt($('#circlein').width());
+    var inHeight = parseInt($('#circlein').height());
+
+
+
+    //работаем с событием мыши, для маленького круга
+    $('#circleout').mousemove(function (e) {
+        //проверяем курсор над кружком или нет
+        if ($('#circlein').is(e.target)) {
+            //получаем сентр внутренней
+
+            let x = e.pageX - outCoordLeft - inWidth / 2;
+            let y = e.pageY - outCoordTop - inHeight / 2;
+            let innerCenter = {
+                x: x + inWidth / 2,
+                y: y + inHeight / 2
+            }
+
+            let d = moveIn(center, innerCenter)
+            if (d > radius - inWidth / 2) {
+                $('#circlein').css('top', outWH / 2).css('left', outWH / 2);
+            } else {
+                $('#circlein').css('top', getRandomInt(0, outWH - 25)).css('left', getRandomInt(0, outWH - 25));
+            }
+        }
+
+
+    });
+    //работаем с событием мыши, для большого круга чтоб возвращать шарик на место в случае если за пределы убежит
+    $('#circleout').mousemove(function (e) {
+
+    });
 });
 
+//для рандомных координат
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+//добавляем в селект количество лицензий
 function selAdd(counts) {
     for (let i = 0; i < counts; i++) {
         $('#numlic').append($('<option value=' + (i + 1) + '>' + (i + 1) + '</option>'));
