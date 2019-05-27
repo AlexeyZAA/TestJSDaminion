@@ -40,7 +40,8 @@ $(document).ready(function () {
         $('#licplan').html('#' + (parseInt($(this).val()) + 1));
     });
 
-    //для второго задания
+
+    //**для второго задания***************************************
 
     let outWH = parseInt($('#circleout').height()); //ширина, ни у она же высота внешнего круга
     let radius = outWH / 2; //радиус внешнего
@@ -51,7 +52,8 @@ $(document).ready(function () {
         x: parseInt(radius),
         y: parseInt(radius)
     }
-    function moveIn(p1, p2) {
+    //По формуле определяем рассояние между точками по координатам d = корень квадратный из (X2-X1) в квадрате + (Y2-Y1) квадрате 
+    function dInOut(p1, p2) {
         let x = p1.x - p2.x;
         let y = p1.y - p2.y;
         return Math.sqrt(x * x + y * y);
@@ -60,33 +62,26 @@ $(document).ready(function () {
     var inWidth = parseInt($('#circlein').width());
     var inHeight = parseInt($('#circlein').height());
 
-
-
-    //работаем с событием мыши, для маленького круга
+    //работаем с событием мыши, для большого круга
     $('#circleout').mousemove(function (e) {
         //проверяем курсор над кружком или нет
         if ($('#circlein').is(e.target)) {
-            //получаем сентр внутренней
-
-            let x = e.pageX - outCoordLeft - inWidth / 2;
-            let y = e.pageY - outCoordTop - inHeight / 2;
+            //получаем центр внутренней
+            let meTopY = e.target.offsetTop;
+            let meLeftX = e.target.offsetLeft;    
             let innerCenter = {
-                x: x + inWidth / 2,
-                y: y + inHeight / 2
+                x: meLeftX + inWidth / 2,
+                y: meTopY + inHeight / 2
             }
-
-            let d = moveIn(center, innerCenter)
+            let d = dInOut(center, innerCenter)
+            //берем отрезок между точками и вымеряем не вышел ли за круг те больше чем радиус минус маленький радиус
             if (d > radius - inWidth / 2) {
+                //то возвращаем в серединку большого круга
                 $('#circlein').css('top', outWH / 2).css('left', outWH / 2);
             } else {
-                $('#circlein').css('top', getRandomInt(0, outWH - 25)).css('left', getRandomInt(0, outWH - 25));
+                $('#circlein').css('top', getRandomInt(0, outWH-inHeight)).css('left', getRandomInt(0, outWH-inWidth));
             }
         }
-
-
-    });
-    //работаем с событием мыши, для большого круга чтоб возвращать шарик на место в случае если за пределы убежит
-    $('#circleout').mousemove(function (e) {
 
     });
 });
